@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-class PythonOrgSearch(unittest.TestCase):
+class ComparaMejorQuoteTest(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
@@ -18,12 +18,11 @@ class PythonOrgSearch(unittest.TestCase):
         car_id = driver.find_element_by_id("quote")
         car_id.send_keys("ABC123")
         car_id.send_keys(Keys.RETURN)
-        wait = WebDriverWait(driver, 20)
-        cmuj_selector = self.driver.find_element_by_id("uj40")
+        WebDriverWait(driver, 20)
+        cmuj_selector = driver.find_element_by_id("uj40")
         self.assertTrue(cmuj_selector.is_displayed(), "Car type selector is not visible")
-
-    def test_filling_funnel(self):
-        driver = self.driver
+        car_icon = WebDriverWait(driver, 10).until(lambda driver : driver.find_element_by_xpath("//i[@class='cmuj-car']"))
+        car_icon.click()
         
 
     def tearDown(self):
