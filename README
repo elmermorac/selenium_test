@@ -1,0 +1,5 @@
+This POC is using WebDriver on Chrome browser.
+
+To run it click:
+python3 test_comparamejor_quote.py
+
